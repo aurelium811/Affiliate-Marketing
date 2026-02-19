@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aurelium | Curated Essentials</title>
+    
+    <link rel="icon" type="image/jpeg" href="Logo.jpg">
+    
     <style>
         :root {
             --primary: #1a1a1a;
@@ -19,17 +22,19 @@
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             background-color: var(--bg);
             color: var(--primary);
-            padding: 40px 15px;
+            padding: 20px 15px 40px;
             line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
         }
 
-        /* --- ADDED: TOP BAR & DARK MODE --- */
+        /* TOP NAVIGATION BAR */
         .top-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             max-width: 1150px;
-            margin: 0 auto 20px;
+            margin: 0 auto 30px;
+            padding: 10px 0;
         }
 
         #currency-selector, .mode-toggle {
@@ -43,6 +48,7 @@
             outline: none;
         }
 
+        /* HEADER & LOGO */
         .header {
             text-align: center;
             margin-bottom: 50px;
@@ -62,19 +68,13 @@
             background: white;
         }
 
-        .logo {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-        }
+        .logo { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
 
         h1 {
             font-size: 1.8rem;
             letter-spacing: 6px;
             text-transform: uppercase;
             font-weight: 400;
-            color: var(--primary);
         }
 
         .tagline {
@@ -85,23 +85,28 @@
             text-transform: uppercase;
         }
 
-        /* --- ADDED: CATEGORY NAV --- */
+        /* CATEGORY FILTER BAR */
         .category-nav {
             text-align: center;
             margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
         .cat-link {
             font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #888;
-            margin: 0 12px;
             text-decoration: none;
-            transition: 0.3s;
             border-bottom: 1px solid transparent;
+            padding-bottom: 4px;
+            transition: 0.3s;
         }
         .cat-link:hover { color: var(--accent); border-bottom: 1px solid var(--accent); }
 
+        /* PRODUCT GRID */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -112,14 +117,13 @@
 
         .product-card {
             background: var(--card-bg);
-            border-radius: 0px; 
-            overflow: hidden;
             text-decoration: none;
             color: inherit;
             transition: all 0.4s ease;
             border: 1px solid #f2f2f2;
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
         .product-card:hover {
@@ -127,43 +131,21 @@
             box-shadow: 0 15px 30px rgba(0,0,0,0.06);
         }
 
-        .image-container {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            overflow: hidden;
-        }
+        .image-container { width: 100%; aspect-ratio: 1 / 1; overflow: hidden; }
+        .product-image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .product-card:hover .product-image { transform: scale(1.05); }
 
-        .product-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .product-card:hover .product-image {
-            transform: scale(1.05);
-        }
-
-        .product-info {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .product-category {
-            font-size: 0.6rem;
-            text-transform: uppercase;
-            color: var(--accent);
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .product-title {
-            font-size: 0.9rem;
-            font-weight: 500;
+        .product-info { padding: 20px; text-align: center; }
+        .product-category { font-size: 0.6rem; text-transform: uppercase; color: var(--accent); letter-spacing: 2px; margin-bottom: 8px; display: block; }
+        .product-title { font-size: 0.9rem; font-weight: 500; margin-bottom: 5px; height: 2.4em; overflow: hidden; }
+        
+        /* PRICE TAG */
+        .product-price {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--primary);
             margin-bottom: 15px;
-            height: 2.4em; 
-            overflow: hidden;
+            display: block;
         }
 
         .shop-button {
@@ -175,22 +157,16 @@
             color: var(--primary);
             border-bottom: 1px solid var(--accent);
             padding-bottom: 2px;
-            transition: all 0.3s;
+            transition: 0.3s;
         }
 
-        .product-card:hover .shop-button {
-            color: var(--accent);
-            letter-spacing: 2px;
-        }
-
+        /* FOOTER */
         .social-footer {
             text-align: center;
             margin-top: 100px;
             padding: 40px 0;
             border-top: 1px solid #f0f0f0;
         }
-
-        /* --- ADDED: SOCIAL PROOF --- */
         .community-tag {
             font-size: 0.65rem;
             text-transform: uppercase;
@@ -199,7 +175,6 @@
             margin-bottom: 20px;
             display: block;
         }
-
         .btn-pinterest {
             display: inline-block;
             border: 1px solid var(--primary);
@@ -209,13 +184,9 @@
             font-size: 0.7rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            transition: all 0.3s;
+            transition: 0.3s;
         }
-
-        .btn-pinterest:hover {
-            background: var(--primary);
-            color: white;
-        }
+        .btn-pinterest:hover { background: var(--primary); color: white; }
 
         .disclosure {
             max-width: 600px;
@@ -225,23 +196,24 @@
             letter-spacing: 0.5px;
         }
 
-        /* DARK MODE LOGIC */
+        /* DARK MODE */
         body.dark-mode {
             --bg: #0a0a0a;
             --primary: #ffffff;
             --card-bg: #111111;
         }
         body.dark-mode .product-card { border-color: #222; }
+        body.dark-mode .logo-container { background: #111; border-color: #333; }
     </style>
 </head>
 <body>
 
     <div class="top-bar">
         <button class="mode-toggle" onclick="document.body.classList.toggle('dark-mode')">🌓 Mode</button>
-        <select id="currency-selector">
+        <select id="currency-selector" onchange="updatePrices()">
             <option value="USD">USD ($)</option>
-            <option value="EUR">EUR (€)</option>
             <option value="INR">INR (₹)</option>
+            <option value="EUR">EUR (€)</option>
         </select>
     </div>
 
@@ -264,44 +236,48 @@
         
         <a href="https://fktr.in/23iAuCf" class="product-card" target="_blank">
             <div class="image-container">
-                <img src="https://i.pinimg.com/736x/e7/02/d4/e702d47b4b2c1043ff9d90274ac51539.jpg" alt="Luxury Watch" class="product-image">
+                <img src="https://i.pinimg.com/736x/e7/02/d4/e702d47b4b2c1043ff9d90274ac51539.jpg" class="product-image">
             </div>
             <div class="product-info">
                 <span class="product-category">Timepieces</span>
                 <p class="product-title">Aurelium Signature Classic</p>
+                <span class="product-price" data-usd="120">$120</span>
                 <span class="shop-button">Shop Direct</span>
             </div>
         </a>
 
         <a href="https://fktr.in/YunG4hK" class="product-card" target="_blank">
             <div class="image-container">
-                <img src="https://i.pinimg.com/736x/f2/89/a4/f289a4ba8458fe6a18621494c98aca9e.jpg" alt="Bracelet" class="product-image">
+                <img src="https://i.pinimg.com/736x/f2/89/a4/f289a4ba8458fe6a18621494c98aca9e.jpg" class="product-image">
             </div>
             <div class="product-info">
                 <span class="product-category">Jewelry</span>
                 <p class="product-title">Gold Link Essential Bracelet</p>
+                <span class="product-price" data-usd="45">$45</span>
                 <span class="shop-button">Shop Direct</span>
             </div>
         </a>
 
         <a href="https://fktr.in/xvKb88r" class="product-card" target="_blank">
             <div class="image-container">
-                <img src="https://i.pinimg.com/736x/20/04/97/200497cba6e2c8734102adf3a90944bd.jpg" alt="Anklet" class="product-image">
+                <img src="https://i.pinimg.com/736x/20/04/97/200497cba6e2c8734102adf3a90944bd.jpg" class="product-image">
             </div>
             <div class="product-info">
                 <span class="product-category">Jewelry</span>
                 <p class="product-title">Dainty Summer Anklet</p>
+                <span class="product-price" data-usd="30">$30</span>
                 <span class="shop-button">Shop Direct</span>
             </div>
         </a>
 
         <a href="https://fktr.in/c9N3sdO" class="product-card" target="_blank">
             <div class="image-container">
-                <img src="https://i.pinimg.com/736x/04/f0/bb/04f0bb99a5b089be33dd9d9740052625.jpg" alt="Shirt" class="product-image">
+                <img src="https://i.pinimg.com/736x/04/f0/bb/04f0bb99a5b089be33dd9d9740052625.jpg" class="product-image">
             </div>
             <div class="product-info">
                 <span class="product-category">Apparel</span>
                 <p class="product-title">Premium Linen Tailored Shirt</p>
+                <span class="product-price" data-usd="85">$85</span>
                 <span class="shop-button">Shop Direct</span>
             </div>
         </a>
@@ -313,10 +289,30 @@
         <a href="https://pinterest.com/aurelium811" class="btn-pinterest" target="_blank">Follow on Pinterest</a>
         
         <div class="disclosure">
-            <p><strong>AFFILIATE DISCLOSURE:</strong> Aurelium participates in affiliate marketing programs. When you click on links to various merchants on this site and make a purchase, this can result in this site earning a commission.</p>
+            <p><strong>AFFILIATE DISCLOSURE:</strong> Aurelium participates in affiliate marketing programs. Clicked links result in commissions that support our curation.</p>
             <p style="margin-top: 15px;">&copy; 2026 AURELIUM STUDIO</p>
         </div>
     </div>
+
+    <script>
+        function updatePrices() {
+            const currency = document.getElementById('currency-selector').value;
+            const prices = document.querySelectorAll('.product-price');
+            
+            // Current 2026 approx rates
+            const rates = {
+                'USD': { symbol: '$', rate: 1 },
+                'INR': { symbol: '₹', rate: 83.5 },
+                'EUR': { symbol: '€', rate: 0.92 }
+            };
+
+            prices.forEach(p => {
+                const usdValue = p.getAttribute('data-usd');
+                const converted = Math.round(usdValue * rates[currency].rate).toLocaleString();
+                p.innerText = rates[currency].symbol + converted;
+            });
+        }
+    </script>
 
 </body>
 </html>
