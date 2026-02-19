@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta name="p:domain_verify" content="38341b7b7ec710319af197d8735fdc37"/>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aurelium | Curated Essentials</title>
@@ -10,128 +9,203 @@
         :root {
             --primary: #1a1a1a;
             --accent: #d4af37; 
-            --bg: #fafafa;
-            --text: #333;
+            --bg: #ffffff;
+            --card-bg: #fdfdfd;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             background-color: var(--bg);
-            color: var(--text);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
+            color: var(--primary);
+            padding: 40px 15px;
         }
 
-        .container {
-            max-width: 600px;
-            width: 100%;
+        .header {
             text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .logo-container {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            border: 1px solid #eee;
+            padding: 5px;
+            overflow: hidden;
         }
 
         .logo {
-            width: 100px;
-            height: 100px;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
-            border: 3px solid var(--accent);
-            margin-bottom: 15px;
             object-fit: cover;
-            background-color: #eee;
+            background-color: #f9f9f9;
         }
 
         h1 {
             font-size: 1.6rem;
-            letter-spacing: 3px;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            margin-bottom: 8px;
-            color: var(--primary);
-            font-weight: 700;
+            font-weight: 400;
         }
 
-        .bio {
-            font-size: 0.95rem;
-            color: #666;
-            margin-bottom: 35px;
-            line-height: 1.5;
+        .tagline {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 10px;
+            letter-spacing: 2px;
         }
 
-        .links-container {
+        .product-grid {
             display: grid;
-            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
-        .link-card {
-            background: white;
-            border: 1px solid #e0e0e0;
-            padding: 20px;
-            border-radius: 15px;
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 4px;
+            overflow: hidden;
             text-decoration: none;
-            color: var(--primary);
-            font-weight: 600;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            color: inherit;
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
         }
 
-        .link-card:hover {
-            transform: translateY(-3px);
+        .product-card:hover {
+            transform: translateY(-5px);
             border-color: var(--accent);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-            background: #fffdf7;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .image-container {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.08);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-category {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: var(--accent);
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .product-title {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .social-footer {
+            text-align: center;
+            margin-top: 80px;
+            padding: 40px 0;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .btn-pinterest {
+            display: inline-block;
+            background: #1a1a1a;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 2px;
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .disclosure {
-            margin-top: 60px;
-            font-size: 0.75rem;
-            color: #999;
+            max-width: 600px;
+            margin: 30px auto 0;
+            font-size: 0.7rem;
+            color: #aaa;
             line-height: 1.6;
-            padding: 25px;
-            border-top: 1px solid #eee;
-        }
-
-        .social-link {
-            margin-top: 25px;
-            display: inline-block;
-            color: #e60023;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 700;
-            padding: 10px 20px;
-            border-radius: 25px;
-            transition: background 0.2s;
-        }
-
-        .social-link:hover {
-            background: #f0f0f0;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <img src="https://www.pinterest.com/aurelium811/profile-image" alt="Aurelium Logo" class="logo">
-        
-        <h1>Aurelium</h1>
-        <p class="bio">Premium finds curated for your lifestyle.<br>Discover quality in every detail.</p>
-
-        <div class="links-container">
-            <a href="#" class="link-card" target="_blank">✨ Shop My Latest Pinterest Finds</a>
-            <a href="#" class="link-card" target="_blank">🏠 Home Decor Favorites</a>
-            <a href="#" class="link-card" target="_blank">💻 Tech & Workspace Setup</a>
-            <a href="#" class="link-card" target="_blank">👗 Style Essentials</a>
-            
-            <a href="https://pinterest.com/aurelium811" class="social-link" target="_blank">Follow @aurelium811 on Pinterest →</a>
+    <div class="header">
+        <div class="logo-container">
+            <img src="https://i.pinimg.com/280x280_RS/7b/72/72/7b727280f5551221f7c80556e43f498c.jpg" alt="Aurelium Logo" class="logo">
         </div>
+        <h1>Aurelium</h1>
+        <p class="tagline">CURATED AESTHETICS</p>
+    </div>
 
-        <footer class="disclosure">
-            <p><strong>Affiliate Disclosure:</strong> As an affiliate, I earn from qualifying purchases made through links on this page. This helps support Aurelium at no extra cost to you.</p>
-            <p style="margin-top: 15px;">&copy; 2026 Aurelium</p>
-        </footer>
+    <div class="product-grid">
+        
+        <a href="https://in.pinterest.com/pin/1127377719235655150/" class="product-card">
+            <div class="image-container">
+                <img src="https://i.pinimg.com/736x/e7/02/d4/e702d47b4b2c1043ff9d90274ac51539.jpg" alt="Watch" class="product-image">
+            </div>
+            <div class="product-info">
+                <span class="product-category">TIMEPIECES</span>
+                <p class="product-title">Aurelium Classic Watch</p>
+            </div>
+        </a>
+
+        <a href="https://in.pinterest.com/pin/1127377719235688128/" class="product-card">
+            <div class="image-container">
+                <img src="https://i.pinimg.com/736x/f2/89/a4/f289a4ba8458fe6a18621494c98aca9e.jpg" alt="Bracelet" class="product-image">
+            </div>
+            <div class="product-info">
+                <span class="product-category">JEWELRY</span>
+                <p class="product-title">Signature Gold Bracelet</p>
+            </div>
+        </a>
+
+        <a href="https://in.pinterest.com/pin/1127377719235688920/" class="product-card">
+            <div class="image-container">
+                <img src="https://i.pinimg.com/736x/20/04/97/200497cba6e2c8734102adf3a90944bd.jpg" alt="Anklet" class="product-image">
+            </div>
+            <div class="product-info">
+                <span class="product-category">JEWELRY</span>
+                <p class="product-title">Dainty Anklet Series</p>
+            </div>
+        </a>
+
+        <a href="https://in.pinterest.com/pin/1127377719235689088/" class="product-card">
+            <div class="image-container">
+                <img src="https://i.pinimg.com/736x/04/f0/bb/04f0bb99a5b089be33dd9d9740052625.jpg" alt="Shirt" class="product-image">
+            </div>
+            <div class="product-info">
+                <span class="product-category">APPAREL</span>
+                <p class="product-title">Premium Essential Shirt</p>
+            </div>
+        </a>
+
+    </div>
+
+    <div class="social-footer">
+        <a href="https://pinterest.com/aurelium811" class="btn-pinterest">View All Pins</a>
+        <div class="disclosure">
+            <p><strong>Affiliate Disclosure:</strong> Aurelium may earn a commission from qualifying purchases through our curated links.</p>
+            <p style="margin-top: 10px;">&copy; 2026 Aurelium</p>
+        </div>
     </div>
 
 </body>
